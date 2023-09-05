@@ -16,7 +16,8 @@ void main(List<String> arguments) {
 
   final skipFiles = ['generated'];
 
-  recursiveFolderCopySync(source: './lib/', skipFiles: skipFiles, allMessages: allMessages);
+  recursiveFolderCopySync(
+      source: './lib/', skipFiles: skipFiles, allMessages: allMessages);
 
   final outputFile = File(path.join(outputDir.path, "string_extractor.arb"));
   const encoder = JsonEncoder.withIndent("  ");
@@ -39,8 +40,6 @@ void recursiveFolderCopySync(
         String content = element.readAsStringSync();
         final stringsFounded = finder.findHardCodedStrings(content);
         if (stringsFounded.isNotEmpty) {
-          print(stringsFounded);
-
           if (content.contains("context")) {
             content += "package:path/path.dart;\n$content";
             for (final element in stringsFounded) {

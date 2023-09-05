@@ -1,6 +1,6 @@
 name: string_extractor
 description: A package to get the texts from the project
-version: 0.0.1
+version: 0.0.2
 homepage: "https://github.com/babakcode/string_extractor.git"
 
 environment:
